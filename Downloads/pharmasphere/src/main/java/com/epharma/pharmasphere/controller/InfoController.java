@@ -29,7 +29,7 @@ public class InfoController {
     @PostMapping("/pharmadashboard/edit")
     public String updateInfo(@RequestParam("email") String email,
                              @RequestParam("pharmacy_name") String pharmacyName,
-                             @RequestParam("phone_number") String phoneNumber,
+                             @RequestParam("phone_number") Long phoneNumber,
                              @RequestParam("address") String address) {
 
         // Find the Pharmainfo entity by email
