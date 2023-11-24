@@ -34,20 +34,17 @@
                         <h3><img src="img/logo.png" class="img-fluid"/><span>ePharmaSphere</span></h3>
                     </div>
 
-                    <ul class="list-unstyled components">
-                            <li  class="active">
-                            <a href="#" class="dashboard"><i class="material-icons">dashboard</i><span>Dashboard</span></a>
+                    <ul class="list-unstyled components" id="mylist">
+                         <li  class="active">
+                            <a href="#" class="dashboard" onclick="changeContent(0)"><i class="material-icons">dashboard</i><span>Dashboard</span></a>
                         </li>			
-                        <li class="dropdown">
+                        <li class="">
                             <a href="#" onclick="changeContent(1)" >
                                         <i class="material-icons">message</i><span>Messages</span>
                             </a>
                         </li>
-                        
-                        
-                    
                         <li class="">
-                            <a href="#"><i class="material-icons">settings</i><span>Settings</span></a>
+                            <a href="#" onclick="changeContent(2)"><i class="material-icons">settings</i><span>Settings</span></a>
                         </li>
                         
                         
@@ -136,62 +133,120 @@
                     
                 <div class="main-content bg-success" >
     
-                    <div class="row content bg-danger " id="divcontent">
-                        <div class="col-12 d-xl-block d-lg-block d-md-block d-none">
-                            <div class="bg-white  rounded d-flex">
-                                <div class="container-fluid text-center pt-5 px-3">
-                                    <h1>Hello, YOURNAME !</h1>
-                                    <p>Welcome to your personal healthcare hub. Your well-being is our priority.</p>
-                                </div>
-                                
-                                <div class="card-content p-0 ">
+                    <div class="container-fluid" id="container">
+                        <div class="row content bg-danger " id="dash">
+                            <div class="col-12 d-xl-block d-lg-block d-md-block d-none">
+                                <div class="bg-white  rounded d-flex">
+                                    <div class="container-fluid text-center pt-5 px-3">
+                                        <h1>Hello, YOURNAME !</h1>
+                                        <p>Welcome to your personal healthcare hub. Your well-being is our priority.</p>
+                                    </div>
                                     
-                                    <img src="img/staff.png" alt="">
+                                    <div class="card-content p-0 ">
+                                        
+                                        <img src="img/staff.png" alt="">
+                                    </div>
+                                    
                                 </div>
-                                
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="card card-stats ">
+                                    <div class="card-header">
+                                        <div class="icon icon-success">
+                                            <span class="material-icons">
+                                            chat
+                                            </span>
+    
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+                                        <p class="category"><strong>messages</strong></p>
+                                        <h3 class="card-title">3</h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons">message</i> Monthly messages
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="card card-stats">
+                                    <div class="card-header">
+                                        <div class="icon icon-info">
+                                        
+                                            <span class="material-icons">
+                                            follow_the_signs
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+                                        <p class="category"><strong>Followers</strong></p>
+                                        <h3 class="card-title">+245</h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons">update</i> Just Updated
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="card card-stats ">
-                                <div class="card-header">
-                                    <div class="icon icon-success">
-                                        <span class="material-icons">
-                                        chat
-                                        </span>
-
+                        <div id="chat"  class="section container-fluid ">
+                            <!-- Products content goes here -->
+                            
+                                <div class="container-fluid p-0 ">
+                              
+                                  <div class="row">
+                                    <div class="col-md-12">
+                              
+                                      <div class="card" id="chat3" style="border-radius: 15px;">
+                                        <div class="card-body">
+                              
+                                          <div class="row ">
+                                            <div class="col-md-6 col-lg-5 col-xl-4 mb-md-0">
+                              
+                                              <div class="p-3">
+                                                <h4 class="fw-bold">Chats : </h4>
+                              
+                                                <div class="chat_content card p-3" data-mdb-perfect-scrollbar="true" style="position: relative; height: 435px">
+                                                  <ul class="list-unstyled mb-0">
+                                                    
+                                                  </ul>
+                                                </div>
+                                              </div>
+                              
+                                            </div>
+                              
+                                            <div class="col-md-6 col-lg-7 col-xl-8 card pb-3">
+                                                <div class="border rounded shadow row " id="product_div">
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                              <div id="parent" class=" p-3 chat_content" data-mdb-perfect-scrollbar="true"
+                                                style="position: relative; height: 400px">
+                              
+                                                
+                              
+                                            
+                              
+                                              </div>
+                                             <div class="parent0 container_fluid">
+                                               
+                                             </div>                                  
+                              
+                                            </div>
+                                           </div>
+                              
+                                        </div>
+                                      </div>
+                              
                                     </div>
+                                  </div>
+                              
                                 </div>
-                                <div class="card-content">
-                                    <p class="category"><strong>messages</strong></p>
-                                    <h3 class="card-title">3</h3>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <i class="material-icons">message</i> Monthly messages
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="card card-stats">
-                                <div class="card-header">
-                                    <div class="icon icon-info">
-                                    
-                                        <span class="material-icons">
-                                        follow_the_signs
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="card-content">
-                                    <p class="category"><strong>Followers</strong></p>
-                                    <h3 class="card-title">+245</h3>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <i class="material-icons">update</i> Just Updated
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 
@@ -222,6 +277,21 @@
         
         
         <script type="text/javascript">
+        window.onload = function() {
+            let container = document.getElementById('container');
+            let mylist = document.getElementById('mylist');
+            listelement = [];
+            listelement.push(mylist.querySelectorAll("li"));
+
+            var ids = ['dash', 'chat'];
+            elements = [];
+
+            for (var i = 0; i < ids.length; i++) {
+                elements.push(document.getElementById(ids[i]));
+            }
+            container.innerHTML = elements[0].outerHTML;
+            
+        };
         $(document).ready(function () {
                     $('#sidebarCollapse').on('click', function () {
                         $('#sidebar').toggleClass('active');
@@ -233,12 +303,24 @@
                     });
                     
                 });
+        
+        
+
+
 
         function changeContent(id){
-            let divContent = document.getElementById("divcontent");
+            let container = document.getElementById('container');
             // Clear previous content
-            divContent.innerHTML = '';
+            container.innerHTML = '';
+            for (var i = 0; i < listelement[0].length; i++){
+                listelement[0][i].classList.remove('active');
+            }
+            listelement[0][id].classList.add('active');
+            
 
+            // add content depend to the clicked button
+            console.log(elements[id]);
+            container.innerHTML = elements[id].outerHTML;
 
         }
             
