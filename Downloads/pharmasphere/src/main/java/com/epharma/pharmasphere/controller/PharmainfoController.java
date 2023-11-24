@@ -25,14 +25,18 @@ public class PharmainfoController {
        public String showLoginPage() {
           return "login";
     }
+        @GetMapping("/Signup")
+        public String showSignUpPage() {
+            return "Signup";
+    }
 }
     
     @PostMapping("/Login")
     public Pharmainfo login(@RequestBody LoginRequest loginRequest) {
         return pharmainfoService.login(loginRequest.getEmail(), loginRequest.getPassword());
     }
+
+        
 }
-
-
 
 
