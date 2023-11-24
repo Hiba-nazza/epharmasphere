@@ -26,9 +26,7 @@
       rel="stylesheet">
   </head>
 <body>
-        <div class="wrapper">
-         <div class="body-overlay"></div>
-
+    <div class="wrapper">
 
                 <!-- Sidebar  -->
                 <nav id="sidebar" >
@@ -41,7 +39,7 @@
                             <a href="#" class="dashboard"><i class="material-icons">dashboard</i><span>Dashboard</span></a>
                         </li>			
                         <li class="dropdown">
-                            <a href="#" >
+                            <a href="#" onclick="changeContent(1)" >
                                         <i class="material-icons">message</i><span>Messages</span>
                             </a>
                         </li>
@@ -63,7 +61,7 @@
                 
 
                 <!-- Page Content  -->
-                <div id="content">
+            <div id="content">
                 
                 <div class="top-navbar">
                     <nav class="navbar navbar-expand-lg">
@@ -136,84 +134,84 @@
                 </div>
                     
                     
-                    <div class="main-content ">
-                    
-                    <div class="row  ">
-                <div class="col-12 d-xl-block d-lg-block d-md-block d-none">
-                    <div class="bg-white  rounded d-flex">
-                        <div class="container-fluid text-center pt-5 px-3">
-                            <h1>Hello, YOURNAME !</h1>
-                            <p>Welcome to your personal healthcare hub. Your well-being is our priority.</p>
+                <div class="main-content bg-success" >
+    
+                    <div class="row content bg-danger " id="divcontent">
+                        <div class="col-12 d-xl-block d-lg-block d-md-block d-none">
+                            <div class="bg-white  rounded d-flex">
+                                <div class="container-fluid text-center pt-5 px-3">
+                                    <h1>Hello, YOURNAME !</h1>
+                                    <p>Welcome to your personal healthcare hub. Your well-being is our priority.</p>
+                                </div>
+                                
+                                <div class="card-content p-0 ">
+                                    
+                                    <img src="img/staff.png" alt="">
+                                </div>
+                                
+                            </div>
                         </div>
-                        
-                        <div class="card-content p-0 ">
-                            
-                            <img src="img/staff.png" alt="">
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="card card-stats ">
-                        <div class="card-header">
-                            <div class="icon icon-success">
-                                <span class="material-icons">
-                                chat
-                                </span>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="card card-stats ">
+                                <div class="card-header">
+                                    <div class="icon icon-success">
+                                        <span class="material-icons">
+                                        chat
+                                        </span>
 
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <p class="category"><strong>messages</strong></p>
+                                    <h3 class="card-title">3</h3>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <i class="material-icons">message</i> Monthly messages
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="card-content">
-                            <p class="category"><strong>messages</strong></p>
-                            <h3 class="card-title">3</h3>
-                        </div>
-                        <div class="card-footer">
-                            <div class="stats">
-                                <i class="material-icons">message</i> Monthly messages
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                                <div class="card-header">
+                                    <div class="icon icon-info">
+                                    
+                                        <span class="material-icons">
+                                        follow_the_signs
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <p class="category"><strong>Followers</strong></p>
+                                    <h3 class="card-title">+245</h3>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <i class="material-icons">update</i> Just Updated
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="card card-stats">
-                        <div class="card-header">
-                            <div class="icon icon-info">
-                            
-                                <span class="material-icons">
-                                follow_the_signs
-                                </span>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <p class="category"><strong>Followers</strong></p>
-                            <h3 class="card-title">+245</h3>
-                        </div>
-                        <div class="card-footer">
-                            <div class="stats">
-                                <i class="material-icons">update</i> Just Updated
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
                 
-                            <footer class="footer ">
-                    <div class="container-fluid row d-flex justify-content-center">
-                        <div class="">
-                        
-                            <div class="col-md-12">
-                            <p class=""> &copy 2023 Design by ICCN2</p>
+                    <footer class="footer ">
+                        <div class="container-fluid row d-flex justify-content-center">
+                            <div class="">
+                            
+                                <div class="col-md-12">
+                                <p class=""> &copy 2023 Design by ICCN2</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </footer> 
-                            
-                            </div>
+                    </footer> 
+            
+                </div>
                             
                         
 
-                </div>
-        </div>
+            </div>
+    </div>
 
             <!-- Optional JavaScript -->
             <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -236,7 +234,13 @@
                     
                 });
 
+        function changeContent(id){
+            let divContent = document.getElementById("divcontent");
+            // Clear previous content
+            divContent.innerHTML = '';
 
+
+        }
             
                 
             
