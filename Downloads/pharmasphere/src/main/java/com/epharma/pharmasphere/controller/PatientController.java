@@ -16,9 +16,6 @@ public class PatientController {
 		return "index";
 	}
 	
-	@RequestMapping("/dash")
-	public String dash(){
-		return "dash";
-	}
+
 
 }
