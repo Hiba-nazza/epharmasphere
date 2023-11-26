@@ -1,4 +1,4 @@
-package com.epharma.pharmasphere.controller;
+/*package com.epharma.pharmasphere.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,4 +39,4 @@ public class PharmainfoController {
         
 }
 
-
+*/

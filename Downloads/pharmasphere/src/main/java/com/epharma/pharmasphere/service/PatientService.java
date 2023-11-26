@@ -1,12 +1,14 @@
 package com.epharma.pharmasphere.service;
 
 import com.epharma.pharmasphere.model.Patient;
+//import com.epharma.pharmasphere.model.Pharmainfo;
+//import com.epharma.pharmasphere.model.Pharmainfo;
 // import com.epharma.pharmasphere.model.HomepageFormData;
 import com.epharma.pharmasphere.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List; // Add this import statement
+import java.util.Optional;
 
 @Service
 public class PatientService {
@@ -22,27 +24,28 @@ public class PatientService {
         return patientRepository.save(patient);
     }
 
-    // public void handleHomepageForm(HomepageFormData formData) {
-    //     // Implement the logic to handle homepage form data
-    //     // This may include saving data to the database or performing other actions
-
-    //     // Example: Save a new patient to the database
-    //     Patient newPatient = new Patient();
-    //     newPatient.setUsername(formData.getUsername());
-    //     newPatient.setPhoneNumber(formData.getPhoneNumber());
-    //     newPatient.setAddress(formData.getAddress());
-    //     newPatient.setEmail(formData.getEmail());
-    //     newPatient.setPassword(formData.getPassword());
-
-    //     patientRepository.save(newPatient);
-    // }
-
-    // Add other service methods for business logic, if needed
-
-    // For example:
     public List<Patient> getAllPatients() {
         return patientRepository.findAll();
     }
 
     // Add more methods as per your business requirements
+    
+    public Optional<Patient> getPatientInfoByEmailAndPassword(String email, String password) {
+        return patientRepository.findByEmailAndPassword(email, password);
+    }
+    public void savePatient(Patient patient) {
+        patientRepository.save(patient);
+    }
+    
+    
+    public boolean authenticatePatient(String email, String password) {
+        Optional<Patient> patientOptional = patientRepository.findByEmail(email);
+        if (patientOptional.isPresent()) {
+            Patient patient = patientOptional.get();
+            if (patient.getPassword().equals(password)) {
+                return true; // Authentication successful
+            }
+        }
+        return false; // Authentication failed
+    }
 }

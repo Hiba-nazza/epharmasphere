@@ -32,7 +32,227 @@
         <link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet">
         <link rel="stylesheet" href="fonts/icomoon/style.css">
  
+<style type="text/css">
+        body{
+        margin-top:20px;
+        /*background:#eee;*/
+        background: #fff;
+        }
+        
+        
+        .email-app {
+            display: flex;
+            flex-direction: row;
+            background: #fff;
+            border: 1px solid #e1e6ef;
+        }
 
+        .email-app nav {
+            flex: 0 0 200px;
+            padding: 1rem;
+            border-right: 1px solid #e1e6ef;
+        }
+
+        .email-app nav .btn-block {
+            margin-bottom: 10px;
+        }
+
+        .email-app nav .nav {
+            flex-direction: column;
+        }
+
+        .email-app nav .nav .nav-item {
+            position: relative;
+        }
+
+        .email-app nav .nav .nav-item .nav-link,
+        .email-app nav .nav .nav-item .navbar .dropdown-toggle,
+        .navbar .email-app nav .nav .nav-item .dropdown-toggle {
+            color: #151b1e;
+            border-bottom: 1px solid #e1e6ef;
+        }
+
+        .email-app nav .nav .nav-item .nav-link i,
+        .email-app nav .nav .nav-item .navbar .dropdown-toggle i,
+        .navbar .email-app nav .nav .nav-item .dropdown-toggle i {
+            width: 20px;
+            margin: 0 10px 0 0;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .email-app nav .nav .nav-item .nav-link .badge,
+        .email-app nav .nav .nav-item .navbar .dropdown-toggle .badge,
+        .navbar .email-app nav .nav .nav-item .dropdown-toggle .badge {
+            float: right;
+            margin-top: 4px;
+            margin-left: 10px;
+        }
+
+        .email-app main {
+            min-width: 0;
+            flex: 1;
+            padding: 1rem;
+        }
+
+        .email-app .inbox .toolbar {
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e1e6ef;
+        }
+
+        .email-app .inbox .messages {
+            padding: 0;
+            list-style: none;
+        }
+
+        .email-app .inbox .message {
+            position: relative;
+            padding: 1rem 1rem 1rem 2rem;
+            cursor: pointer;
+            border-bottom: 1px solid #e1e6ef;
+        }
+
+        .email-app .inbox .message:hover {
+            background: #f9f9fa;
+        }
+
+        .email-app .inbox .message .actions {
+            position: absolute;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .email-app .inbox .message .actions .action {
+            width: 2rem;
+            margin-bottom: 0.5rem;
+            color: #c0cadd;
+            text-align: center;
+        }
+
+        .email-app .inbox .message a {
+            color: #000;
+        }
+
+        .email-app .inbox .message a:hover {
+            text-decoration: none;
+        }
+
+        .email-app .inbox .message.unread .header,
+        .email-app .inbox .message.unread .title {
+            font-weight: bold;
+        }
+
+        .email-app .inbox .message .header {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 0.5rem;
+        }
+
+        .email-app .inbox .message .header .date {
+            margin-left: auto;
+        }
+
+        .email-app .inbox .message .title {
+            margin-bottom: 0.5rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .email-app .inbox .message .description {
+            font-size: 12px;
+        }
+
+        .email-app .message .toolbar {
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e1e6ef;
+        }
+
+        .email-app .message .details .title {
+            padding: 1rem 0;
+            font-weight: bold;
+        }
+
+        .email-app .message .details .header {
+            display: flex;
+            padding: 1rem 0;
+            margin: 1rem 0;
+            border-top: 1px solid #e1e6ef;
+            border-bottom: 1px solid #e1e6ef;
+        }
+
+        .email-app .message .details .header .avatar {
+            width: 40px;
+            height: 40px;
+            margin-right: 1rem;
+        }
+
+        .email-app .message .details .header .from {
+            font-size: 12px;
+            color: #9faecb;
+            align-self: center;
+        }
+
+        .email-app .message .details .header .from span {
+            display: block;
+            font-weight: bold;
+        }
+
+        .email-app .message .details .header .date {
+            margin-left: auto;
+        }
+
+        .email-app .message .details .attachments {
+            padding: 1rem 0;
+            margin-bottom: 1rem;
+            border-top: 3px solid #f9f9fa;
+            border-bottom: 3px solid #f9f9fa;
+        }
+
+        .email-app .message .details .attachments .attachment {
+            display: flex;
+            margin: 0.5rem 0;
+            font-size: 12px;
+            align-self: center;
+        }
+
+        .email-app .message .details .attachments .attachment .badge {
+            margin: 0 0.5rem;
+            line-height: inherit;
+        }
+
+        .email-app .message .details .attachments .attachment .menu {
+            margin-left: auto;
+        }
+
+        .email-app .message .details .attachments .attachment .menu a {
+            padding: 0 0.5rem;
+            font-size: 14px;
+            color: #e1e6ef;
+        }
+        .main-breadcrumb {
+            background-color: white;
+        }
+
+        @media (max-width: 767px) {
+            .email-app {
+                flex-direction: column;
+            }
+            .email-app nav {
+                flex: 0 0 100%;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .email-app .message .header {
+                flex-flow: row wrap;
+            }
+            .email-app .message .header .date {
+                flex: 0 0 100%;
+            }
+        }
+</style>
 </head>
 <body>
     
@@ -70,7 +290,6 @@
                         <div class="d-flex flex-column align-items-center text-center">
                         <img src="https://img.freepik.com/vecteurs-premium/illustration-vectorielle-symbole-pharmacie-illustration-couleur-verte-signe-pharmacie_764382-1137.jpg?w=360" alt="Admin" class="rounded-circle" width="150">
                         <div class="mt-3">
-                        <h4>Pharma name</h4>
                         </div>
                         </div>
                         </div>
@@ -102,7 +321,7 @@
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Phone</h6>
                                 </div>
-                                <div class="col-sm-9 text-secondary" th:text="${info.phone_number}"></div>
+                                <div class="col-sm-9 text-secondary" th:text="${info.phoneNumber}"></div>
                             </div>
                             <hr>
                             <div class="row">
@@ -158,6 +377,7 @@
                                             <span class="action"><i class="fa fa-square-o"></i></span>
                                             <span class="action important" onclick="toggleStar(this)"><i class="fa fa-star-o"></i></span>
                                             <span class="action delete" onclick="deleteMessage(this)"><i class="fa fa-trash"></i></span>
+                                            <span class="action download" onclick="downloadFile(this)"><i class="fa fa-download"></i></span>
                                         </div>
                                         <div class="header">
                                             <span class="from">
@@ -174,7 +394,28 @@
                                         <div class="description">
                                             Content: <span th:text="${message.content}"></span>
                                         </div>
-                                    </a>
+                                        <!--<div class="attachment" th:if="${message.file_path}">
+                                             
+                                            <div th:with="{message.file_path}"></div>
+                                            
+                                            <a th:href="@{'/download/' + ${message.id}}" target="_blank">
+                                                <i class="fa fa-download"></i> Download File
+                                            </a>
+                                        </div>-->
+                                        <!--<div class="attachment" th:if="${message.filePath}">
+                                            
+                                            <a th:href="@{'/download/' + ${message.id}}" target="_blank">
+                                                <i class="fa fa-download"></i> Download File
+                                            </a>
+                                        </div>-->
+                                        <form action="/displayPdf" method="get">
+                                            <button type="submit">View PDF</button>
+                                        </form>
+                                        
+                                        
+                                        
+                                        
+                                    
                                 </li>
                                 <!-- Additional messages will be dynamically added here -->
                             </ul>
@@ -197,93 +438,204 @@
                         <!-- Your compose email HTML content goes here -->
                         <p class="text-center">New Message</p>
                         <a class="trash-button" href="javascript:void(0);" onclick="hidecomposeemail(this)"><i class="fa fa-trash-o"></i></a>
-                        <form>
-                        <div class="form-row mb-3">
-                        <label for="from" class="col-2 col-sm-1 col-form-label">from:</label>
-                        <div class="col-10 col-sm-11">
-                        <input type="email" class="form-control" id="from" placeholder="Type email">
-                        </div>
-                        </div>
-                        <div class="form-row mb-3">
-                        <label for="to" class="col-2 col-sm-1 col-form-label">to:</label>
-                        <div class="col-10 col-sm-11">
-                        <input type="email" class="form-control" id="to" placeholder="Type email">
-                        </div>
-                        </div>
-                        <div class="form-row mb-3">
-                            <label for="object" class="col-2 col-sm-1 col-form-label">object:</label>
-                            <div class="col-10 col-sm-11">
-                            <input type="text" class="form-control" id="object" placeholder="Type text">
+                
+                        <form th:action="@{/pharmadashboard}" th:object="${message}" method="post">
+                            <div class="form-row mb-3">
+                                <label for="from" class="col-2 col-sm-1 col-form-label">from:</label>
+                                <div class="col-10 col-sm-11">
+                                    <input type="text" id="from" name="sender" class="form-control" required>
+                                </div>
                             </div>
-                        </div>
+                            <div class="form-row mb-3">
+                                <label for="to" class="col-2 col-sm-1 col-form-label">to:</label>
+                                <div class="col-10 col-sm-11">
+                                    <input type="text" id="to" name="receiver" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-row mb-3">
+                                <label for="object" class="col-2 col-sm-1 col-form-label">object:</label>
+                                <div class="col-10 col-sm-11">
+                                    <input type="text" id="object" name="subject" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-row mb-3">
+                                <label for="content" class="col-2 col-sm-1 col-form-label">content:</label>
+                                <div class="col-10 col-sm-11">
+                                    <input type="text" id="content" name="content" class="form-control" required>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-success" onclick="addMessage()">send</button>
+                            </div>
                         </form>
-                        <div class="row">
-                        <div class="col-sm-11 ml-auto">
-                        <div class="toolbar" role="toolbar">
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-light">
-                        <span class="fa fa-bold"></span>
-                        </button>
-                        <button type="button" class="btn btn-light">
-                        <span class="fa fa-italic"></span>
-                        </button>
-                        <button type="button" class="btn btn-light">
-                        <span class="fa fa-underline"></span>
-                        </button>
-                        </div>
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-light">
-                        <span class="fa fa-align-left"></span>
-                        </button>
-                        <button type="button" class="btn btn-light">
-                        <span class="fa fa-align-right"></span>
-                        </button>
-                        <button type="button" class="btn btn-light">
-                        <span class="fa fa-align-center"></span>
-                        </button>
-                        <button type="button" class="btn btn-light">
-                        <span class="fa fa-align-justify"></span>
-                        </button>
-                        </div>
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-light">
-                        <span class="fa fa-indent"></span>
-                        </button>
-                        <button type="button" class="btn btn-light">
-                        <span class="fa fa-outdent"></span>
-                        </button>
-                        </div>
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-light">
-                        <span class="fa fa-list-ul"></span>
-                        </button>
-                        <button type="button" class="btn btn-light">
-                        <span class="fa fa-list-ol"></span>
-                        </button>
-                        </div>
-                        <button type="button" class="btn btn-light">
-                        <span class="fa fa-trash-o"></span>
-                        </button>
-                        <button type="button" class="btn btn-light">
-                        <span class="fa fa-paperclip"></span>
-                        </button>
+                    </div>
+                    
                         
-                        </div>
-                        <div class="form-group mt-4">
-                        <textarea class="form-control" id="message" name="body" rows="12" placeholder="Click here to reply"></textarea>
-                        </div>
-                        <div class="form-group">
-                        <button type="submit" class="btn btn-success" onclick="sendMessage()">Send</button>
-                        <!--<button type="submit" class="btn btn-light">Draft</button>
-                        <button type="submit" class="btn btn-danger">Discard</button>-->
-                        </div>
+                        
                         </div>
                         </div>
                     </div>
                 </main>
             </div>
         </div>
-<script src="assets/js/pharmadashboard.js"></script>
+        <script type="text/javascript">
+            function deleteMessage(element) {
+    const messageElement = element.closest('.message');
+    messageElement.classList.add('deleted');
+    messageElement.style.display = 'none';
+}
+
+const deleteIcons = document.querySelectorAll('.message .action.delete');
+deleteIcons.forEach(function (deleteIcon) {
+    deleteIcon.addEventListener('click', function (event) {
+        event.preventDefault();
+        deleteMessage(this);
+    });
+});
+
+document.querySelector('.trash-button').addEventListener('click', function() {
+    const deletedMessages = document.querySelectorAll('.message.deleted');
+    const undeletedMessages = document.querySelectorAll('.message:not(.deleted)');
+    
+    undeletedMessages.forEach(function(message) {
+        message.style.display = 'none';
+    });
+    
+    deletedMessages.forEach(function(message) {
+        message.style.display = 'block';
+    });
+});
+
+
+function toggleStar(element) {
+    const messageElement = element.closest('.message');
+    const starIcon = messageElement.querySelector('.fa-star-o');
+
+    // Toggle the star icon and update the visual state
+    if (starIcon) {
+        starIcon.classList.remove('fa-star-o');
+        starIcon.classList.add('fa-star');
+        messageElement.classList.add('stared');
+    } else {
+        const filledStarIcon = messageElement.querySelector('.fa-star');
+        filledStarIcon.classList.remove('fa-star');
+        filledStarIcon.classList.add('fa-star-o');
+        messageElement.classList.remove('stared');
+    }
+}
+
+
+document.querySelector('.stared-button').addEventListener('click', function(){
+    const staredMessages = document.querySelectorAll('.message.stared');
+    const unstaredMessages = document.querySelectorAll('.message:not(.stared)');
+    
+    unstaredMessages.forEach(function(message) {
+        message.style.display = 'none';
+    });
+    
+    staredMessages.forEach(function(message) {
+        message.style.display = 'block';
+    });
+});
+
+
+function handleInboxClick() {
+    const deletedMessages = document.querySelectorAll('.message.deleted');
+    const undeletedMessages = document.querySelectorAll('.message:not(.deleted)');
+    
+    undeletedMessages.forEach(function(message) {
+        message.style.display = 'block';
+    });
+    
+    deletedMessages.forEach(function(message) {
+        message.style.display = 'none';
+    });
+
+    const staredMessages = document.querySelectorAll('.message.stared');
+    staredMessages.forEach(function(message) {
+        message.style.display = 'block';
+    });
+}
+
+
+
+const messages = document.querySelectorAll('.message');
+
+messages.forEach(function (message) {
+    message.addEventListener('click', function (event) {
+        //event.preventDefault(); // Prevent the default behavior of the anchor element
+        
+    });
+});
+
+
+function showComposemessage(){
+    const composeEmailSection = document.getElementById('compose-email');
+    composeEmailSection.style.display = 'block';
+}
+
+// Function to hide the compose email section
+function hidecomposeemail() {
+    const composeEmailSection = document.getElementById('compose-email');
+    composeEmailSection.style.display = 'none';
+}
+
+// Add a click event listener to the trash button in the compose email section
+document.querySelector('.trash-button').addEventListener('click', hideComposeEmail);
+
+
+messages.forEach(function (message) {
+    const downloadButton = message.querySelector('.download');
+
+    if (downloadButton) {
+        downloadButton.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            // Retrieve the file path from the corresponding message element
+            const filePath = message.querySelector('.attachment a').getAttribute('href');
+
+            // Create a temporary link element
+            const link = document.createElement('a');
+            link.href = filePath;
+            link.download = '';  // The file will be downloaded with its original name
+            document.body.appendChild(link);
+
+            // Trigger the click event on the link to initiate the download
+            link.click();
+
+            // Remove the link from the DOM
+            document.body.removeChild(link);
+        });
+    }
+});
+
+
+
+
+
+
+
+
+function openPDFInNewWindow() {
+// Specify the URL of the PDF file
+var pdfURL = "file_url_here"; // Replace with your PDF file URL
+
+// Open a new browser window with the PDF file
+var newWindow = window.open(pdfURL, "_blank", "width=800, height=600");
+
+// Focus on the new window (optional)
+if (newWindow) {
+    newWindow.focus();
+}
+}
+
+
+
+function addMessage() {
+            // This function can be used to perform any additional client-side logic
+            // before submitting the form. For example, displaying a confirmation message.
+        }   
+        </script>
         
 </body>
 </html>        

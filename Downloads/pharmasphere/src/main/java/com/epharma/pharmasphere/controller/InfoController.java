@@ -1,35 +1,49 @@
 package com.epharma.pharmasphere.controller;
 import java.util.Optional;
-import java.util.List;
 
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import com.epharma.pharmasphere.repository.InfoRepository;
 import com.epharma.pharmasphere.model.Pharmainfo;
+import com.epharma.pharmasphere.repository.InfoRepository;
 import com.epharma.pharmasphere.service.InfoService;
+//import java.security.Principal;
 @Controller
 public class InfoController {
 
     @Autowired
+    private InfoService infoService;
+    @Autowired
     private InfoRepository infoRepository;
 
-    @Autowired
-	private InfoService infoService;
 
     @GetMapping("/pharmadashboard/edit")
-    public String showEdit(Model model) {
-        List<Pharmainfo> info = infoService.getAllinfo();
-        model.addAttribute("info", info);
-        return "edit_info_pharma";
-    }
-    
+    public String editPharmaInfo(Model model, HttpSession session) {
+        // Get the user's email from the session attribute
+        String userEmail = (String) session.getAttribute("userEmail");
 
+        if (userEmail != null) {
+            Optional<Pharmainfo> pharmaInfoOptional = infoService.getPharmaInfoByEmail(userEmail);
+
+            if (pharmaInfoOptional.isPresent()) {
+                Pharmainfo pharmaInfo = pharmaInfoOptional.get();
+                model.addAttribute("info", pharmaInfo);
+                return "edit_pharma_info";
+            } else {
+                // Redirect to an error page or handle the case where the user info is not found
+                return "error";
+            }
+        } else {
+            // Redirect to an error page or handle the case where the user is not authenticated
+            return "error";
+        }
+    }
     @PostMapping("/pharmadashboard/edit")
     public String updateInfo(@RequestParam("email") String email,
                              @RequestParam("pharmacy_name") String pharmacyName,
-                             @RequestParam("phone_number") Long phoneNumber,
+                             @RequestParam("phone_number") String phoneNumber,
                              @RequestParam("address") String address) {
 
         // Find the Pharmainfo entity by email
@@ -53,4 +67,3 @@ public class InfoController {
         }
     }
 }
-

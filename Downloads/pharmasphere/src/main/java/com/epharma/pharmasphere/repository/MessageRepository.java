@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface MessageRepository extends JpaRepository<Message, Long> {
     // Add custom query methods if needed
 	List<Message> findAll();
-
+    List<Message> findByReceiver(String receiver);
     List<Message> findByReceiver(Patient patient);
 }

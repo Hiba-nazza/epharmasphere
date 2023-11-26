@@ -10,4 +10,5 @@ public interface InfoRepository extends JpaRepository<Pharmainfo, Long> {
     // Add custom query methods if needed
 	List<Pharmainfo> findAll();
     Optional<Pharmainfo> findByEmail(String email);
+    Optional<Pharmainfo> findByEmailAndPassword(String email, String password);
 }

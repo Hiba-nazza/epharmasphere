@@ -16,18 +16,21 @@ public class Message {
     private String subject;
     private String content;
     private LocalDateTime timestamp;
+    private String filePath;
+    
 
     // Constructors
     public Message() {
         // Default constructor
     }
 
-    public Message(String sender, String receiver, String subject, String content, LocalDateTime timestamp) {
+    public Message(String sender, String receiver, String subject, String content, LocalDateTime timestamp,String filePath) {
         this.sender = sender;
         this.receiver = receiver;
         this.subject = subject;
         this.content = content;
         this.timestamp = timestamp;
+        this.filePath = filePath;
     }
 
     // Getters and setters
@@ -77,6 +80,14 @@ public class Message {
 
     public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
     }
 }
 

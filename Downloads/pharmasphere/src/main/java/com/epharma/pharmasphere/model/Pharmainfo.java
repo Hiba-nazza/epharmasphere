@@ -9,7 +9,7 @@ public class Pharmainfo {
     private String email;
 
     private String pharmacy_name;
-    private Long phoneNumber;
+    private String phoneNumber;
     private String password;
     private String address;
     
@@ -19,7 +19,7 @@ public class Pharmainfo {
         // Default constructor
     }
 
-    public Pharmainfo(String pharmacy_name, String email, Long phoneNumber, String address, String password) {
+    public Pharmainfo(String pharmacy_name, String email, String phoneNumber, String address, String password) {
         this.pharmacy_name = pharmacy_name;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -45,12 +45,12 @@ public class Pharmainfo {
         this.email = email;
     }
 
-    public Long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Long phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhoneNumber(String phoneNumber2) {
+        this.phoneNumber = phoneNumber2;
     }
     
     public String getPassword() {

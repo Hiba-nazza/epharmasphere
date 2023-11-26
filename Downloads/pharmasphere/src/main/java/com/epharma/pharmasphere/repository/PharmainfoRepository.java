@@ -1,4 +1,4 @@
-package com.epharma.pharmasphere.repository;
+/*package com.epharma.pharmasphere.repository;
 // PharmacienRepository.java
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -12,4 +12,4 @@ public interface PharmainfoRepository extends JpaRepository<Pharmainfo, String> 
     }
 }
 
-
+*/

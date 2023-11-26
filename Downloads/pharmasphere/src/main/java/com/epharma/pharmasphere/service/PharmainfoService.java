@@ -1,4 +1,4 @@
-package com.epharma.pharmasphere.service;
+/*package com.epharma.pharmasphere.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,3 +17,4 @@ public class PharmainfoService {
         return PharmainfoRepository.findByEmailAndPassword(email, password);
     }
 }
+*/
