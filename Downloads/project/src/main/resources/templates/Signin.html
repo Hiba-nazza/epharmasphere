@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Snippet - BBBootstrap</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content />
+        <meta name="author" content />
+        <title>Modern Business - epharmaSphere</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Custom Google font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/login.css" rel="stylesheet" />
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="main-container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+            <div class="container px-5">
+                <a class="navbar-brand" href="index.html"><span class="fw-bolder text-success">epharmaSphere</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Login.html">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Signup">Signup</a></li>
+                    </ul>
+                </div>
+            </div>
+            </nav>
+            <div class="container px-4 py-5 mx-auto">
+            <div class="card card0">
+                <div class="d-flex flex-lg-row flex-column-reverse">
+                    <div class="card card1">
+                        <div class="row justify-content-center my-auto">
+                            <div class="col-md-8 col-10 my-5">
+                                <div class="row justify-content-center px-3 mb-3">
+                                    <img id="logo" src="https://i.imgur.com/5Znz51X.jpg" />
+                                </div>
+                                <h3 class="mb-5 text-center heading">We are epharmaSphere</h3>
+
+                                <h6 class="msg-info">Please login to your account</h6>
+
+                               <!-- <div class="form-group">
+                                    <label class="form-control-label text-muted">Username</label>
+                                    <input type="text" id="email" name="email" placeholder="Phone no or email id" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-control-label text-muted">Password</label>
+                                    <input type="password" id="psw" name="psw" placeholder="Password" class="form-control" />
+                                </div>-->
+
+                                <div class="row justify-content-center my-3 px-3">
+                                    <button class="btn-block btn-color">Login to epharmaSphere</button>
+                                </div>
+                               
+
+<form th:action="@{/Signin}" th:object="${patient}" method="post">
+    <div>
+        <label for="email">Email:</label>
+        <input type="text" id="email" th:field="*{email}" class="form-control" required>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" th:field="*{password}" class="form-control" required>
+    </div>
+    <input type="hidden" name="type" th:value="patient" />
+    <div>
+        <button type="submit" class="btn btn-success">Sign In</button>
+    </div>
+</form>
+
+                            
+                            
+                            
+                                <div th:if="${error}" style="color: red;">
+                                    <p th:text="${error}"></p>
+                                </div>
+
+                                <div class="row justify-content-center my-2">
+                                    <a href="#"><small class="text-muted">Forgot Password?</small></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottom text-center mb-5">
+                            <p  class="sm-text mx-auto mb-3">Don't have an account?<a class="btn btn-white ml-2" th:href="@{Signup_pharma}">Create new</a></p>
+                        </div>
+                    </div>
+                    <div class="card card2">
+                        <div class="my-auto mx-md-5 px-md-5 right">
+                            <h3 class="text-black">We are more than just a company</h3>
+                            <small class="text-">We are a website that aims to create a big database of pharmacies around morocco to fasten the process of getting your medication within the comfort of your ownn house.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </body>
+
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="#"></script>
+    <script type="text/javascript" src="#"></script>
+    <script type="text/javascript" src="#"></script>
+    <script type="text/javascript" src="#"></script>
+    <script type="text/javascript">
+        var myLink = document.querySelector('a[href="#"]');
+        myLink.addEventListener("click", function (e) {
+            e.preventDefault();
+        });
+
+        
+    </script>
+</html>
