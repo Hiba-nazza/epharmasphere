@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <title>Your dashboard
+		</title>
+	    <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+	    <!----css3---->
+        <link rel="stylesheet" href="css/custom.css">
+        <link rel="icon" href="img/logo.png">
+		<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link th:href="@{/css/styles.css}" rel="stylesheet" />
+    
+        <!-- Your additional stylesheets with Thymeleaf syntax -->
+        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+        <link th:href="@{/css/magnific-popup.css}" rel="stylesheet" />
+        <link th:href="@{/css/jquery-ui.css}" rel="stylesheet" />
+        <link th:href="@{/css/owl.carousel.min.css}" rel="stylesheet" />
+        <link th:href="@{/css/owl.theme.default.min.css}" rel="stylesheet" />
+        <link th:href="@{/css/aos.css}" rel="stylesheet" />
+        <link th:href="@{/css/style.css}" rel="stylesheet" />
+        <!-- Additional fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet">
+        <link rel="stylesheet" href="fonts/icomoon/style.css">
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+	<style>
+        .message-box {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.message-content {
+    margin-top: 5px; /* Add some space above the content */
+    font-size: 14px;
+    color: #333; /* Text color */
+    line-height: 1.4; /* Adjust line height for better readability */
+}
+
+/* Optional: Add some spacing between messages */
+.message-box + .message-box {
+    margin-top: 20px;
+}
+    </style>
+	
+	
+	<!--google material icon-->
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet">
+  </head>
+<body>
+    <div class="wrapper">
+
+                <!-- Sidebar  -->
+                <nav id="sidebar" >
+                    <div class="sidebar-header ">
+                        <h3><img src="img/logo.png" class="img-fluid"/><span>ePharmaSphere</span></h3>
+                    </div>
+
+                    <ul class="list-unstyled components" id="mylist">
+                         <li  class="active">
+                            <a href="#" class="dashboard" onclick="changeContent(0)"><i class="material-icons">dashboard</i><span>Dashboard</span></a>
+                        </li>			
+                        <li class="">
+                            <a href="#" onclick="changeContent(1)" >
+                                        <i class="material-icons">message</i><span>Messages</span>
+                            </a>
+                        </li>
+                        
+                        
+                        
+                    
+                    
+                    </ul>
+
+                
+                </nav>
+                
+                
+
+                <!-- Page Content  -->
+            <div id="content">
+                
+                <div class="top-navbar">
+                    <nav class="navbar navbar-expand-lg">
+                        <div class="container-fluid">
+
+                            <button type="button" id="sidebarCollapse" class="d-xl-block d-lg-block d-md-mone d-none">
+                                <span class="material-icons">arrow_back_ios</span>
+                            </button>
+                            <button>
+
+                                <span class="d-flex more-button font-weight-bold">
+                                    <span class="d-xl-none d-lg-none material-icons mx-2"  >menu</span> 
+                                    Dashboard
+                                </span>
+                            </button>
+                            
+                            
+                            
+                            
+                            <button class="d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" >
+                                <span class="material-icons">
+                                    expand_more
+                                    </span>
+                                <span class="notification">4</span>
+                            </button>
+
+                            <div class="collapse navbar-collapse d-lg-block d-xl-block " id="navbarSupportedContent">
+                                <ul class="nav navbar-nav ml-auto">   
+                                    
+                                    
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                    
+                    
+                <div class="main-content " >
+    
+                    <div class="container-fluid" id="container">
+                        <div class="row content " id="dash">
+                            <div class="col-12 d-xl-block d-lg-block d-md-block d-none">
+                                <div class="bg-white  rounded d-flex">
+                                    <div class="container-fluid text-center pt-5 px-3">
+                                        <h1 th:each="patient : ${patient}">Hello, <span th:text="${patient.username}"> !</h1>
+                                        <p>Welcome to your personal healthcare hub. Your well-being is our priority.</p>
+                                    </div>
+                                    
+                                    <div class="card-content p-0 ">
+                                        
+                                        <img src="img/staff.png" alt="">
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                           
+                        </div>
+                        <div id="chat"  class="section container-fluid ">
+                            <!-- Products content goes here -->
+                            
+                                <div class="container-fluid p-0 ">
+                              
+                                  <div class="row">
+                                    <div class="col-md-12">
+                              
+                                      <div class="card" id="chat3" style="border-radius: 15px;">
+                                        <div class="card-body">
+                              
+                                          
+                                            <div class="col-md-6 col-lg-5 col-xl-6 mb-md-0">
+                              
+                                              <div class="p-3">
+                                                <h4 class="fw-bold">Chats : </h4>
+                                              </div>
+                              
+                                            </div>
+                                            
+                              
+                                            <div>
+                                                <!-- Display received messages -->
+                                                <div>
+                                                    <h2>Received Messages</h2>
+                                                    <ul>
+                                                        <li th:each="message : ${receivedMessages}" class="message-box">
+                                                            <div class="message-content">
+                                                                <p th:text="'Sender: ' + ${message.sender}"></p>
+                                                                <p th:text="'Content: ' + ${message.content}"></p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            
+                                                <!-- Display sent messages -->
+                                                <div>
+                                                    <h2>Sent Messages</h2>
+                                                    <ul>
+                                                        <li th:each="message : ${sentMessages}" class="message-box">
+                                                            <div class="message-content">
+                                                                <p th:text="'Receiver: ' + ${message.receiver}"></p>
+                                                                <p th:text="'Content: ' + ${message.content}"></p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            
+                                                    </div>
+                                                    
+                                                </div>
+                                              
+                                                                               
+                              
+                                            </div>
+                                           </div>
+                              
+                                        </div>
+                                      </div>
+                              
+                                    </div>
+                                  </div>
+                              
+                                </div>
+                            
+                        </div>
+                    </div>
+                
+                   
+            
+                </div>
+                            
+                        
+
+            </div>
+    </div>
+
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="js/jquery-3.3.1.slim.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery-3.3.1.min.js"></script>
+        
+        
+        <script type="text/javascript">
+        window.onload = function() {
+            let container = document.getElementById('container');
+            let mylist = document.getElementById('mylist');
+            listelement = [];
+            listelement.push(mylist.querySelectorAll("li"));
+
+            var ids = ['dash', 'chat'];
+            elements = [];
+
+            for (var i = 0; i < ids.length; i++) {
+                elements.push(document.getElementById(ids[i]));
+            }
+            container.innerHTML = elements[0].outerHTML;
+            
+        };
+        $(document).ready(function () {
+                    $('#sidebarCollapse').on('click', function () {
+                        $('#sidebar').toggleClass('active');
+                        $('#content').toggleClass('active');
+                    });
+                    
+                    $('.more-button,.body-overlay').on('click', function () {
+                        $('#sidebar,.body-overlay').toggleClass('show-nav');
+                    });
+                    
+                });
+        
+        
+
+
+
+        function changeContent(id){
+            let container = document.getElementById('container');
+            // Clear previous content
+            container.innerHTML = '';
+            for (var i = 0; i < listelement[0].length; i++){
+                listelement[0][i].classList.remove('active');
+            }
+            listelement[0][id].classList.add('active');
+            
+
+            // add content depend to the clicked button
+            console.log(elements[id]);
+            container.innerHTML = elements[id].outerHTML;
+
+        }
+            
+                
+            
+        </script>
+  
+  
+
+
+
+  </body>
+  
+  </html>
+
+
