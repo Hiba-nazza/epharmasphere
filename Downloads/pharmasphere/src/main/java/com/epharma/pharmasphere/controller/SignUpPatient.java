@@ -11,17 +11,25 @@ import com.epharma.pharmasphere.service.*;
 public class SignUpPatient {
     @Autowired
     private PatientService patientService;
+  
     @GetMapping("/signupPatient")
     public String showSignUpForm(Model model) {
         model.addAttribute("patient", new Patient());
-        model.addAttribute("type", "patient");
+        
         return "signupPatient";
     }
 
     @PostMapping("/signupPatient")
     public String processSignUp(Patient patient) {
+        System.out.println("Processing sign-up...");
+    try {
         patientService.savePatient(patient);
         return "redirect:/Signin";
+    } catch (Exception e) {
+        // Log the exception for debugging
+        e.printStackTrace();
+        return "error-page"; // Redirect to an error page or handle accordingly
     }
+}
     
 }

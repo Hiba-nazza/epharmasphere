@@ -2,21 +2,27 @@ package com.epharma.pharmasphere.controller;
 
 import java.security.Principal;
 import java.util.List;
-
+import java.util.Optional;
+import java.util.Collections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 
-import com.epharma.pharmasphere.model.Message;
-import com.epharma.pharmasphere.model.Patient;
-import com.epharma.pharmasphere.repository.MessageRepository;
-import com.epharma.pharmasphere.repository.PatientRepository;
+import com.epharma.pharmasphere.model.*;
+import com.epharma.pharmasphere.repository.*;
+import com.epharma.pharmasphere.service.*;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class dashController {
     private final MessageRepository messageRepository;
     private final PatientRepository patientRepository;
+    @Autowired
+    private MessageService messageService;
+     @Autowired
+    private PatientService patientService;
 
     @Autowired
     public dashController(MessageRepository messageRepository, PatientRepository patientRepository) {
@@ -24,19 +30,43 @@ public class dashController {
         this.patientRepository = patientRepository;
     }
 
+    
     @GetMapping("/dash")
-    public String dashboard(Model model, Principal principal) {
-        // String username = principal.getName();
+    public String showDashboard(Model model, HttpSession session) {
+        // Get the user's email from the session attribute
+        String userEmail = (String) session.getAttribute("userEmail");
 
-        // // Retrieve the user based on the username
-        // Patient patient = patientRepository.findByUsername(username);
+        if (userEmail != null) {
+            // Retrieve messages based on the user's email as receiver
+            List<Message> receivedMessages = messageService.getMessagesForReceiver(userEmail);
+            
+            // Retrieve messages based on the user's email as sender
+            List<Message> sentMessages = messageService.getMessagesForSender(userEmail);
 
-        // // Retrieve messages for the authenticated user
-        // List<Message> messages = messageRepository.findByReceiver(patient);
+            model.addAttribute("receivedMessages", receivedMessages);
+            model.addAttribute("sentMessages", sentMessages);
 
-        // model.addAttribute("messages", messages);
+            Optional<Patient> patientOptional = patientService.getPatientByEmail(userEmail);
+            if (patientOptional.isPresent()) {
+                Patient patient = patientOptional.get();
+
+                
+                model.addAttribute("patient", patient);
+
+                return "dash";
+            } else {
+                // Redirect to an error page or handle the case where the user info is not found
+                return "error";
+            }
+        } else {
+            // Handle the case where the user is not authenticated
+            model.addAttribute("receivedMessages", Collections.emptyList());
+            model.addAttribute("sentMessages", Collections.emptyList());
+        }
+
         return "dash";
     }
+
     
 
 }

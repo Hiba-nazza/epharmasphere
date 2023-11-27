@@ -34,10 +34,10 @@
     
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
         <div class="container px-5">
-            <a class="navbar-brand" href="index.html"><span class="fw-bolder text-success">ePharmaSphere</span></a>
+            <a class="navbar-brand" th:href="@{/}"><span class="fw-bolder text-success">ePharmaSphere</span></a>
 
             <!-- Add a button-like link to the dashboardpatient.html page -->
-            <a class="btn btn-success" href="dash.html">Go to Dashboard</a>
+            <a class="btn btn-success" th:href="@{/dash}">Go to Dashboard</a>
         </div>
     </nav>
     <!-- Choose Nearest Pharmacy Section -->
@@ -49,38 +49,34 @@
                         <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">Choose the Nearest Pharmacy</span></h2>
                     </div>
                     <form>
-                                                <!-- Inside your HTML form -->
-                            <div class="mb-3">
-                                
-                                <form id="pharmacyForm">
-                                    <label for="pharmacySelect">Select a Pharmacy:</label>
-                                    <select id="pharmacySelect" name="pharmacy" >
-                                        
-                                        <!-- Use Thymeleaf to iterate over the list of pharmacies from the model -->
-                                        <div th:each="pharmacy : ${pharmacies}">
-                                            <option th:value="${pharmacy.id}" th:text="${pharmacy.name}"></option>
-                                        </div>
-                                    </select>
-                                    
-                                </form>
+                        <!-- Inside your HTML form -->
+                        <div class="mb-3">
+                            <form id="pharmacyForm">
+                                <label for="pharmacySelect">Select a Pharmacy:</label>
+                                <select id="pharmacySelect" name="pharmacy">
+                                    <!-- Use Thymeleaf to iterate over the list of pharmacies from the model -->
+                                    <div th:each="pharmacy : ${pharmacies}">
+                                        <option th:value="${pharmacy.email}" th:text="${pharmacy.email}"></option>
+                                    </div>
+                                </select>
+                            </form>
 
-                                <!-- Display details of the selected pharmacy here -->
-                                
-                            </div>
-                            <!-- Inside your HTML form -->
-                            <input type="hidden" id="selectedPharmacyId" name="selectedPharmacyId" />
-                            <input type="hidden" id="senderEmail" name="senderEmail" />
+                            <!-- Display details of the selected pharmacy here -->
+                        </div>
+                        <!-- Inside your HTML form -->
+                        <input type="hidden" id="selectedPharmacyId" name="selectedPharmacyId" />
+                        <input type="hidden" id="senderEmail" name="senderEmail" />
 
-                            <div class="mb-3">
-                                <label for="message" class="form-label">Write a Message to the Pharmacy</label>
-                                <textarea class="form-control" id="message" rows="4" placeholder="Enter your message"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="fileUpload" class="form-label">Upload a File</label>
-                                <input type="file" class="form-control" id="fileUpload">
-                            </div>
-                            <button type="button" class="btn btn-success" onclick="sendMessage()">Send Message and/or File</button>
-
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Write a Message to the Pharmacy</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="Enter your message"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fileUpload" class="form-label">Upload a File</label>
+                            <input type="file" class="form-control" id="fileUpload">
+                        </div>
+                        <!-- Update the anchor tag with the correct function call -->
+                        <a class="btn btn-success" th:href="@{/dash}">Send Message and/or File</a>
                     </form>
                 </div>
             </div>
@@ -108,7 +104,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS -->
 <!-- Add this script block at the end of your HTML file, before the closing </body> tag -->
-<script src="/assets/js/homepagepatient.js"> </script>
+<script src="/assets/js/homepagepatient.js"></script>
 
 </body>
 </html>

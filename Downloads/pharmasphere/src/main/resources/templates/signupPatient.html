@@ -45,35 +45,33 @@
                     <div class="text-center my-5">
                         <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">Patient Information</span></h2>
                     </div>
-                    <form>
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="username" placeholder="Your Username">
+                    <form th:action="@{/signupPatient}" th:object="${patient}" method="post">
+                        <div>
+                            <label for="email">Email:</label>
+                            <input type="text" id="email" th:field="*{email}" class="form-control" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="phoneNumber" class="form-label">Phone Number</label>
-                            <input type="tel" class="form-control" id="phoneNumber" placeholder="Your Phone Number">
+                        <div>
+                            <label for="address">Address:</label>
+                            <input type="text" id="address" th:field="*{address}" class="form-control" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="address" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="address" placeholder="Your Address">
+                        <div>
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" th:field="*{password}" class="form-control" required>
+                        </div>
+                        <div>
+                            <label for="phoneNumber">Phone Number:</label>
+                            <input type="text" id="phoneNumber" th:field="*{phoneNumber}" class="form-control" required>
+                        </div>
+                        <div>
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" th:field="*{username}" class="form-control" required>
                         </div>
                         
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Your Email">
+                        
+                        
+                        <div>
+                            <button type="submit" class="btn btn-success">Sign Up</button>
                         </div>
-
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="text" class="form-control" id="address" placeholder="Your Password">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Repeat the Password</label>
-                            <input type="text" class="form-control" id="address" placeholder="Your Password">
-                        </div>
-                        <button type="submit" class="btn btn-success">Sign UP</button>
                     </form>
                 </div>
             </div>
@@ -102,42 +100,8 @@
 <!-- Core theme JS -->
 <!-- Add this script block at the end of your HTML file, before the closing </body> tag -->
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-    // Find the form and add a submit event listener
-    const form = document.querySelector('form');
-    form.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        // Gather form data
-        const formData = {
-            username: document.getElementById('username').value,
-            phoneNumber: document.getElementById('phoneNumber').value,
-            address: document.getElementById('address').value,
-            email: document.getElementById('email').value,
-            password: document.getElementById('password').value,
-            // Add other form fields as needed
-        };
-
-        // Make a POST request to the backend
-        fetch('http://localhost:8081/patient/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            // Optionally, redirect to another page or update the UI
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            // Handle errors or display a message to the user
-        });
-    });
-});
-
+    
+    
 </script>
 
 </body>

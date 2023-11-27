@@ -36,6 +36,9 @@ public class MessageService {
         return messageRepository.findById(id).orElse(null);
     }
     
+    public List<Message> getMessagesForSender(String sender) {
+        return messageRepository.findBySender(sender);
+    }
     
     public String saveFile(MultipartFile file) throws IOException {
         // Save the file to a location on the server

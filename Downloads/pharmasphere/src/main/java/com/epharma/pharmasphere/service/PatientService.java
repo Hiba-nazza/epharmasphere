@@ -3,6 +3,7 @@ package com.epharma.pharmasphere.service;
 import com.epharma.pharmasphere.model.Patient;
 //import com.epharma.pharmasphere.model.Pharmainfo;
 //import com.epharma.pharmasphere.model.Pharmainfo;
+//import com.epharma.pharmasphere.model.Pharmainfo;
 // import com.epharma.pharmasphere.model.HomepageFormData;
 import com.epharma.pharmasphere.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +35,12 @@ public class PatientService {
         return patientRepository.findByEmailAndPassword(email, password);
     }
     public void savePatient(Patient patient) {
-        patientRepository.save(patient);
+         patientRepository.save(patient);
     }
+    public Optional<Patient> getPatientByEmail(String email) {
+        return patientRepository.findByEmail(email);
+    }
+    
     
     
     public boolean authenticatePatient(String email, String password) {
