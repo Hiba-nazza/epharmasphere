@@ -48,35 +48,32 @@
                     <div class="text-center my-5">
                         <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">Choose the Nearest Pharmacy</span></h2>
                     </div>
-                    <form>
-                        <!-- Inside your HTML form -->
+                    <form id="pharmacyForm" th:action="@{/sendMessage}" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
-                            <form id="pharmacyForm">
-                                <label for="pharmacySelect">Select a Pharmacy:</label>
-                                <select id="pharmacySelect" name="pharmacy">
-                                    <!-- Use Thymeleaf to iterate over the list of pharmacies from the model -->
-                                    <div th:each="pharmacy : ${pharmacies}">
-                                        <option th:value="${pharmacy.email}" th:text="${pharmacy.email}"></option>
-                                    </div>
-                                </select>
-                            </form>
-
-                            <!-- Display details of the selected pharmacy here -->
+                            <label for="pharmacySelect">Select a Pharmacy:</label>
+                            <select id="pharmacySelect" name="receiverEmail" onchange="updateReceiverEmail()">
+                                <option th:each="pharmacy : ${pharmacies}" th:value="${pharmacy.email}" th:text="${pharmacy.email}"></option>
+                            </select>
                         </div>
-                        <!-- Inside your HTML form -->
+                    
                         <input type="hidden" id="selectedPharmacyId" name="selectedPharmacyId" />
-                        <input type="hidden" id="senderEmail" name="senderEmail" />
-
+                        <input type="hidden" id="senderEmail" name="senderEmail" value="${userEmail}" />
+                    
+                        <!-- Correct the name attribute to match the one in the controller method -->
+                        <input type="hidden" id="receiverEmail" name="receiverEmail" />
+                    
                         <div class="mb-3">
                             <label for="message" class="form-label">Write a Message to the Pharmacy</label>
-                            <textarea class="form-control" id="message" rows="4" placeholder="Enter your message"></textarea>
+                            <textarea class="form-control" id="message" name="content" rows="4" placeholder="Enter your message"></textarea>
                         </div>
+                    
                         <div class="mb-3">
                             <label for="fileUpload" class="form-label">Upload a File</label>
-                            <input type="file" class="form-control" id="fileUpload">
+                            <input type="file" class="form-control" id="fileUpload" name="file">
                         </div>
-                        <!-- Update the anchor tag with the correct function call -->
-                        <a class="btn btn-success" th:href="@{/dash}">Send Message and/or File</a>
+                    
+                        <!-- Use a button to submit the form instead of an anchor tag -->
+                        <button type="submit" class="btn btn-success" onclick="addMessage()">Send Message and/or File</button>
                     </form>
                 </div>
             </div>
@@ -104,7 +101,20 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS -->
 <!-- Add this script block at the end of your HTML file, before the closing </body> tag -->
-<script src="/assets/js/homepagepatient.js"></script>
+<script src="/assets/js/homepagepatient.js">
+    function updateReceiverEmail() {
+        var selectedPharmacy = document.getElementById("pharmacySelect");
+        var receiverEmailInput = document.getElementById("receiverEmail");
+
+        receiverEmailInput.value = selectedPharmacy.value;
+    }
+
+    function addMessage() {
+        // Additional logic to handle form submission or AJAX call
+        // You can use JavaScript to submit the form or perform other actions
+        document.getElementById("pharmacyForm").submit();
+    }
+</script>
 
 </body>
 </html>

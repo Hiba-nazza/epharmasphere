@@ -89,6 +89,24 @@ public class MessageController {
         return "redirect:/pharmadashboard";
     }
     
+    @PostMapping("/sendMessage")
+    public String sendMessage(@ModelAttribute("message") Message message,
+                            @RequestParam("receiverEmail") String receiverEmail,
+                            HttpSession session) {
+        // Retrieve the sender's email from the session
+        String senderEmail = (String) session.getAttribute("userEmail");
+
+        // Set additional fields in the Message object
+        message.setSender(senderEmail);
+        message.setReceiver(receiverEmail);
+
+        // Save the message
+        messageService.saveMessage(message);
+
+        // Redirect to the dashboard or another appropriate page
+        return "redirect:/dash";
+    }
+    
     @GetMapping("/pharmadashboard/form")
     public String showForm(Model model) {
         model.addAttribute("message", new Message());
@@ -122,28 +140,7 @@ public class MessageController {
         return "redirect:/homepagepatient"; // Redirect to inbox or any other page
     }
  
-    /*@GetMapping("/download/{messageId}")
-    public ResponseEntity<Resource> downloadFile(@PathVariable Long messageId) {
-        // Retrieve the message from the database
-        Message message = messageService.getMessageById(messageId);
-
-        // Construct the file path
-        String filePath = message.getFilePath();
-        Path path = Paths.get(filePath);
-        Resource resource;
-
-        try {
-            resource = new UrlResource(path.toUri());
-        } catch (MalformedURLException e) {
-            e.printStackTrace(); // Handle the exception appropriately
-            return ResponseEntity.notFound().build();
-        }
-
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;")
-                .contentType(MediaType.APPLICATION_OCTET_STREAM)
-                .body(resource);
-    }*/
+    
     @GetMapping("/displayPdf")
     public ResponseEntity<byte[]> displayPdf() throws IOException {
         // Load the PDF file from the classpath
@@ -161,6 +158,20 @@ public class MessageController {
         // Return the PDF file as a response entity
         return ResponseEntity.ok().headers(headers).body(pdfBytes);
     }
+    /*@PostMapping("/sendMessage")
+    public String sendMessage(@ModelAttribute("message") Message message,
+                            @RequestParam("receiverEmail") String receiverEmail
+                            ) {
+        // Set additional fields in the Message object
+        message.setReceiver(receiverEmail);
+        
+        // Save the message and file (if any)
+        messageService.saveMessage(message);
+
+        // Redirect to the dashboard or another appropriate page
+        return "redirect:/pharmadashboard";
+    }*/
+
     /*@GetMapping("/download/{messageId}")
 public ResponseEntity<Resource> downloadFile(@PathVariable Long messageId) {
     // Retrieve the message from the database
